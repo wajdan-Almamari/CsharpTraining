@@ -5,9 +5,19 @@
         static void Main(string[] args)
         {
             //declare variables
-
-
-
+            int accountNumber =0;
+            string holderName= "";
+            double balance = 0.00;
+            bool isActive= false;
+            char accountType ;
+            bool isEmployed= false;
+            double salary =0.00;
+            int creditScore =0 ;
+            int age =0 ;
+            double deposit = 0.00;
+            double withdrawal = 0.00;
+            double annualRate = 0.00;
+            double avgBalance = 0.00;
 
             //system options
             //dispay main Menu
@@ -24,6 +34,7 @@
             Console.WriteLine("7: Reports & Admin ");
             Console.WriteLine("Select Option");
             int choice =int.Parse(Console.ReadLine());
+
 
 
 
