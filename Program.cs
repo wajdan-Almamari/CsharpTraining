@@ -11,7 +11,7 @@ namespace BankingServices
             string holderName = "";
             double balance = 0.00;
             bool isActive = false;
-            char accountType;
+            char accountType=' ';
             bool isEmployed = false;
             double salary = 0.00;
             int creditScore = 0;
@@ -138,8 +138,9 @@ namespace BankingServices
                         Console.WriteLine("Invalid option. Please choose 1–13 or 0.");
                         break;
                 }
-            }
-            // =========================================
+            }//End while loop
+
+            // -------------------------------------------------------------------------------------------------------------------------
             // MAIN MENU
 
 
@@ -163,6 +164,7 @@ namespace BankingServices
             //Task2
             switch (choice)
             {
+                //ATM Services — Tasks 2 
                 case 1:
                     Console.WriteLine("=== ATM SERVICES === ");
                     Console.WriteLine("1) Bank Info");
@@ -199,10 +201,43 @@ namespace BankingServices
                     }
 
                     break;
-           
+                //Account Data Viewer - Tasks 3
                 case 2:
                     Console.WriteLine("=== VIEW ACCOUNT DATA ===");
+                    Console.WriteLine(" 1) Account Number  ==>    " + accountNumber );
+                    Console.WriteLine(" 2) Holder Name  ==>  " + holderName);
+                    Console.WriteLine(" 3) Balance  ==>  " + balance);
+                    Console.WriteLine(" 4) Status ==>  " + isActive);
+                    Console.WriteLine(" 5) Account Type ==> " + accountType);
+                    Console.WriteLine(" 0) Back");
+                    Console.WriteLine("Data loaded from system setup");
+                    Console.Write("Select Account Data Viewer: ");
+                    int dataChoice = int.Parse(Console.ReadLine());    ;
+                    switch (dataChoice)
+                    {
+                        case 1:
+                            Console.WriteLine(" 1) Account Number  ==>    " + accountNumber);
+                            break; 
+                        case 2:
+                            Console.WriteLine(" 2) Holder Name  ==>  " + holderName);
+                            break; 
+                        case 3:
+                            Console.WriteLine(" 3) Balance  ==>  " + balance);
+                            break; 
+                        case 4:
+                            Console.WriteLine(" 4) Status ==>  " + isActive);
+                            break; 
+                        case 5:
+                            Console.WriteLine(" 5) Account Type ==> " + accountType);
+                            break; 
+                        case 0:
+                            Console.WriteLine("Returning to Main Menu...");
+                            break; 
+                        default:
+                            Console.WriteLine("'Invalid selection. Please try again.");
+                            break; 
 
+                    }
                     break;
                 case 3:
                     Console.WriteLine("3: Loan Services  ");
