@@ -1,4 +1,6 @@
-﻿namespace BankingServices
+﻿using System.Diagnostics;
+
+namespace BankingServices
 {
     internal class Program
     {
@@ -35,7 +37,34 @@
             Console.WriteLine("Select Option");
             int choice =int.Parse(Console.ReadLine());
 
+            //switch option 
 
+            switch(choice){
+                case 1: 
+                    Console.WriteLine("1: ATM Services ");
+                    break;
+                case 2:
+                    Console.WriteLine("2: Account Management ");
+                    break;
+                case 3:
+                    Console.WriteLine("3: Loan Services  ");
+                    break;
+                case 4:
+                    Console.WriteLine("4: Currency Exchange");
+                    break;
+                case 5:
+                    Console.WriteLine("5: Credit Card Portal ");
+                    break;
+                case 6:
+                    Console.WriteLine("6: Branch Services ");
+                    break;
+                case 7:
+                    Console.WriteLine("7: Reports & Admin ");
+                    break;
+                defult: 
+                    Console.WriteLine("Invalid Number ");
+                    break;
+            }
 
 
 
