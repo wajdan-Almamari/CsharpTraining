@@ -280,9 +280,8 @@ namespace BankingServices
                                 break;
 
 
-                            // TASK 4 -> ATM PIN Validation
-
-                            case 3:
+                       
+                            case 3: // TASK 4 -> ATM PIN Validation
                                 Console.WriteLine("=== AUTHENTICATION ===");
 
                                 const string CORRECT_PIN = "4821";
@@ -291,47 +290,132 @@ namespace BankingServices
                                 Console.WriteLine("1) Enter PIN");
                                 Console.WriteLine("2) Forgot PIN");
                                 Console.WriteLine("0) Back");
-                                Console.Write("Select:");
+
+                                Console.Write("Select: ");
                                 int PINServices = int.Parse(Console.ReadLine());
+
                                 switch (PINServices)
                                 {
-                                    case 1://Enter PIN
-                                        Console.Write("Enter PIN: ");
-                                        string enterPin = Console.ReadLine();
-                                        if (enterPin == "4821")
+
+                                    case 1: // Enter PIN
+
+                                        int attempts = 0;
+
+                                        while (attempts < MAX_ATTEMPTS)
                                         {
-                                            Console.WriteLine("Access granted. Welcome  " + holderName);
+                                            Console.Write("Enter PIN: ");
+                                            string enterPin = Console.ReadLine();
+
+                                            if (enterPin == CORRECT_PIN)
+                                            {
+                                                Console.WriteLine("Access granted. Welcome " + holderName);
+                                                break;
+                                            }
+
+                                            else if (enterPin.Length != 4)
+                                            {
+                                                Console.WriteLine("Invalid PIN format.");
+                                            }
+
+                                            else
+                                            {
+                                                Console.WriteLine("Incorrect PIN.");
+                                            }
+
+                                            attempts++;
 
                                         }
-                                        else if (enterPin.Length != 4)
-                                        {
-                                            Console.WriteLine("Invalid PIN format");
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Incorrect PIN");
-                                        }
+
                                         break;
 
-                                    case 2://2) Forgot PIN
-                                        Console.WriteLine("Please visit the nearest branch with your National ID ");
-                                        break;
-                                    case 3://Back
-                                        Console.WriteLine();
+
+                                    case 2: // Forgot PIN
+
+                                        Console.WriteLine("Please visit the nearest branch with your National ID.");
                                         break;
 
+
+                                    case 0: // Back
+
+                                        Console.WriteLine("Returning to ATM Services...");
+                                        break;
+
+
+                                    default:
+
+                                        Console.WriteLine("Invalid selection. Please try again.");
+                                        break;
                                 }
-
 
                                 break;
 
 
-                            // TASK 5 -> Receipt Printer
-                            case 4:
+
+                            case 4: // TASK 5 -> ATM Receipt Printer
 
                                 Console.WriteLine("=== PRINT RECEIPT ===");
-                                Console.WriteLine("Select format:");
+                                Console.WriteLine("1) Short Receipt");
+                                Console.WriteLine("2) Detailed Receipt");
+                                Console.WriteLine("3) Balance Only");
+                                Console.WriteLine("0) Back");
 
+                                Console.Write("Select format: ");
+                                int enterReceipt = int.Parse(Console.ReadLine());
+
+                                switch (enterReceipt)
+                                {
+
+                                    case 1: // Short Receipt
+
+                                        string accountText = accountNumber.ToString();
+
+                                        Console.WriteLine("=== SHORT RECEIPT ===");
+                                        Console.WriteLine("Holder  : " + holderName);
+                                        Console.WriteLine("Account : " + accountText.Substring(accountText.Length - 4));
+                                        Console.WriteLine("Balance : " + balance + " OMR");
+
+                                        break;
+
+                                    case 2: // Detailed Receipt
+
+                                        Console.WriteLine("=== DETAILED RECEIPT ===");
+                                        Console.WriteLine("Account Number : " + accountNumber);
+                                        Console.WriteLine("Holder Name    : " + holderName);
+                                        Console.WriteLine("Balance        : " + balance + " OMR");
+                                        Console.WriteLine("Account Active : " + isActive);
+                                        Console.WriteLine("Account Type   : " + accountType);
+                                        Console.WriteLine("Employed       : " + isEmployed);
+                                        Console.WriteLine("Monthly Salary : " + salary + " OMR");
+                                        Console.WriteLine("Credit Score   : " + creditScore);
+                                        Console.WriteLine("Age            : " + age);
+                                        Console.WriteLine("Deposit Amount : " + deposit + " OMR");
+                                        Console.WriteLine("Withdrawal     : " + withdrawal + " OMR");
+                                        Console.WriteLine("Annual Rate    : " + annualRate);
+                                        Console.WriteLine("Average Balance: " + avgBalance + " OMR");
+
+                                        break;
+
+
+                                    case 3: // Balance Only
+
+                                        Console.WriteLine("=== BALANCE ONLY ===");
+
+                                        Console.WriteLine("Current Balance: " + balance + " OMR");
+
+                                        break;
+
+
+                                    case 0: // Back
+
+                                        Console.WriteLine("Returning to ATM Services...");
+                                        break;
+
+
+                                    default: // Invalid Receipt Format
+
+                                        Console.WriteLine("Invalid receipt format.");
+                                        break;
+                                }
 
                                 break;
 
