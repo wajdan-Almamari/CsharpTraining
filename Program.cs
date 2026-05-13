@@ -147,23 +147,26 @@ namespace BankingServices
             // -------------------------------------------------------------------------------------------------------------------------
             // MAIN MENU
 
+            int choice = -1;
 
-            Console.WriteLine("NATIONAL BANK OF OMAN  —  Unified Banking System");
-            Console.WriteLine("Main MENU ");
+            while (choice != 0)
+            {
+                Console.WriteLine("NATIONAL BANK OF OMAN  —  Unified Banking System");
+                Console.WriteLine("Main MENU ");
 
-            Console.WriteLine("1) ATM Services");
-            Console.WriteLine("2) Account Management");
-            Console.WriteLine("3) Loan Services");
-            Console.WriteLine("4) Currency Exchange");
-            Console.WriteLine("5) Credit Card Portal");
-            Console.WriteLine("6) Branch Services");
-            Console.WriteLine("7) Reports & Admin");
-            Console.WriteLine("0) Exit");
+                Console.WriteLine("1) ATM Services");
+                Console.WriteLine("2) Account Management");
+                Console.WriteLine("3) Loan Services");
+                Console.WriteLine("4) Currency Exchange");
+                Console.WriteLine("5) Credit Card Portal");
+                Console.WriteLine("6) Branch Services");
+                Console.WriteLine("7) Reports & Admin");
+                Console.WriteLine("0) Exit");
 
 
-            Console.Write("Select Module: ");
-            int choice = int.Parse(Console.ReadLine());
-            
+                Console.Write("Select Module: ");
+                choice = int.Parse(Console.ReadLine());
+
                 //switch option 
                 switch (choice)
                 {
@@ -277,47 +280,47 @@ namespace BankingServices
                                 break;
 
 
-                        // TASK 4 -> ATM PIN Validation
-                       
-                        case 3:
-                            Console.WriteLine("=== AUTHENTICATION ===");
-                            
-                            const string CORRECT_PIN = "4821";
-                            const int MAX_ATTEMPTS = 3;
-                           
-                            Console.WriteLine("1) Enter PIN");
-                            Console.WriteLine("2) Forgot PIN");
-                            Console.WriteLine("0) Back");
-                            Console.Write("Select:");
-                            int PINServices = int.Parse(Console.ReadLine());
-                            switch (PINServices)
-                            {
-                                case 1://Enter PIN
-                                    Console.Write("Enter PIN: ");
-                                    string enterPin = Console.ReadLine();
-                                    if (enterPin == "4821")
-                                    {
-                                        Console.WriteLine("Access granted. Welcome  " + holderName);
-                               
-                                    }
-                                    else if (enterPin.Length != 4)
-                                    {
-                                        Console.WriteLine("Invalid PIN format");
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Incorrect PIN");
-                                    }
-                                    break;
-                                
-                                case 2://2) Forgot PIN
-                                    Console.WriteLine("Please visit the nearest branch with your National ID ");
-                                    break;
-                                case 3://Back
-                                    Console.WriteLine();
-                                    break;
+                            // TASK 4 -> ATM PIN Validation
 
-                            }
+                            case 3:
+                                Console.WriteLine("=== AUTHENTICATION ===");
+
+                                const string CORRECT_PIN = "4821";
+                                const int MAX_ATTEMPTS = 3;
+
+                                Console.WriteLine("1) Enter PIN");
+                                Console.WriteLine("2) Forgot PIN");
+                                Console.WriteLine("0) Back");
+                                Console.Write("Select:");
+                                int PINServices = int.Parse(Console.ReadLine());
+                                switch (PINServices)
+                                {
+                                    case 1://Enter PIN
+                                        Console.Write("Enter PIN: ");
+                                        string enterPin = Console.ReadLine();
+                                        if (enterPin == "4821")
+                                        {
+                                            Console.WriteLine("Access granted. Welcome  " + holderName);
+
+                                        }
+                                        else if (enterPin.Length != 4)
+                                        {
+                                            Console.WriteLine("Invalid PIN format");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Incorrect PIN");
+                                        }
+                                        break;
+
+                                    case 2://2) Forgot PIN
+                                        Console.WriteLine("Please visit the nearest branch with your National ID ");
+                                        break;
+                                    case 3://Back
+                                        Console.WriteLine();
+                                        break;
+
+                                }
 
 
                                 break;
@@ -326,7 +329,10 @@ namespace BankingServices
                             // TASK 5 -> Receipt Printer
                             case 4:
 
-                                Console.WriteLine("Receipt Printer");
+                                Console.WriteLine("=== PRINT RECEIPT ===");
+                                Console.WriteLine("Select format:");
+
+
                                 break;
 
 
@@ -404,8 +410,8 @@ namespace BankingServices
 
                 }
             }
-       
 
+        }
 
     }
 }
