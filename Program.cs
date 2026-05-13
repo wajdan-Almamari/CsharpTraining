@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Diagnostics;
+using System.Transactions;
 
 namespace BankingServices
 {
@@ -74,7 +75,7 @@ namespace BankingServices
 
                     case 4:
                         Console.Write("Enter 1=active / 0=inactive: ");
-                        isActive = int.Parse(Console.ReadLine()) == 1;
+                        isActive = int.Parse(Console.ReadLine())==1 ;
                         Console.WriteLine("Account Status set to: "+ isActive);
                         break;
 
@@ -437,10 +438,100 @@ namespace BankingServices
                         break;
 
 
-                    // Account Management
-                    case 2:
+                    // Account Management 
+                    case 2: //Task 6 
 
-                        Console.WriteLine("=== TRANSACTION CALCULATOR ===");
+                        
+                        Console.WriteLine("1) Transaction Calculator");
+                        Console.WriteLine("2) Account Type Information");
+                        Console.WriteLine("3) Loan Eligibility Checker");
+                        Console.WriteLine("4) Back To Main Menu");
+
+                        Console.Write("select : ");
+                        int AccountChoise = int.Parse(Console.ReadLine());
+                        switch (AccountChoise)
+                        {
+                            case 1://1) Account Management --Transaction Calculator
+                              
+                                Console.WriteLine("=== TRANSACTION CALCULATOR ===");
+                                Console.WriteLine("1) After Deposit");
+                                Console.WriteLine("2) After Withdrawal");
+                                Console.WriteLine("3) Annual Interest");
+                                Console.WriteLine("4) Net Change");
+                                Console.WriteLine("5) Back");
+                                Console.Write("Select calculation:  ");
+                                int transactionChoice = int.Parse(Console.ReadLine());
+                                switch (transactionChoice)
+                                {
+                                    case 1: //1) After Deposit
+                                        double afterDeposit = balance + deposit;
+                                        Console.WriteLine("Balance After Deposit: " + afterDeposit + " OMR");
+
+                                        break;
+                                    case 2: //2) After Withdrawal
+                                        double afterWithdrawal = balance - withdrawal;
+                                        Console.WriteLine("Balance After Withdrawal: " + afterWithdrawal + " OMR");
+                                        
+                                        break;
+                                    case 3: //3) Annual Interest
+                                        double annualInterest = balance * annualRate;
+                                        Console.WriteLine("Annual Rate Applied: " + annualRate);
+                                        Console.WriteLine("Interest Amount: " + annualInterest + "OMR");
+
+
+                                        break;
+                                    case 4: //4) Net Change
+                                        double net = deposit - withdrawal;
+                                        if (net < 0)
+                                        {
+                                            Console.WriteLine("Surplus");
+                                        }
+                                        else if (net > 0 )
+                                        {
+                                            Console.WriteLine("Deficit");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("No Change");
+                                        }
+                                       
+                                        break;
+                                    case 0: //back
+                                        Console.WriteLine();
+                                        break;
+                                    default: // Invalid Option
+
+                                        Console.WriteLine("Calculation not available");
+                                        break;
+
+                                }
+
+
+
+
+                                break;
+                            
+                            case 2: //2) Account Type Information
+                                Console.WriteLine();
+                                break;
+                            case 3://3) Loan Eligibility Checker
+                                Console.WriteLine();
+                                break;
+
+                            // Back To Main Menu
+                            case 0:
+
+                                Console.WriteLine("Returning To Main Menu...");
+                                break;
+
+
+                            // Invalid ATM Selection
+                            default:
+
+                                Console.WriteLine("Invalid selection. Please try again.");
+                                break;
+
+                        }
 
                         break;
 
