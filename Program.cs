@@ -57,79 +57,79 @@ namespace BankingServices
                     case 1:
                         Console.Write("Enter Account Number: ");
                         accountNumber = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Account Number Saved.");
+                        Console.WriteLine("Account Number set to: "+ accountNumber);
                         break;
 
                     case 2:
                         Console.Write("Enter Holder Name: ");
                         holderName = Console.ReadLine();
-                        Console.WriteLine("Holder Name Saved.");
+                        Console.WriteLine("Holder Name set to:  " + holderName);
                         break;
 
                     case 3:
                         Console.Write("Enter Balance: ");
                         balance = double.Parse(Console.ReadLine());
-                        Console.WriteLine("Balance Saved.");
+                        Console.WriteLine("Balance set to: "+ balance);
                         break;
 
                     case 4:
                         Console.Write("Enter 1=active / 0=inactive: ");
                         isActive = int.Parse(Console.ReadLine()) == 1;
-                        Console.WriteLine("Account Status Saved.");
+                        Console.WriteLine("Account Status set to: "+ isActive);
                         break;
 
                     case 5:
                         Console.Write("Enter Account Type S / C / F: ");
                         accountType = char.Parse(Console.ReadLine().ToUpper());
-                        Console.WriteLine("Account Type Saved.");
+                        Console.WriteLine("Account Type set to:  " + accountNumber);
                         break;
 
                     case 6:
                         Console.Write("Enter 1=employed / 0=not employed: ");
                         isEmployed = int.Parse(Console.ReadLine()) == 1;
-                        Console.WriteLine("Employment Status Saved.");
+                        Console.WriteLine("Employment Status set to:  "+ isEmployed);
                         break;
 
                     case 7:
                         Console.Write("Enter Monthly Salary: ");
                         salary = double.Parse(Console.ReadLine());
-                        Console.WriteLine("Salary Saved.");
+                        Console.WriteLine("Salary set to: " + salary);
                         break;
 
                     case 8:
                         Console.Write("Enter Credit Score: ");
                         creditScore = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Credit Score Saved.");
+                        Console.WriteLine("Credit Score set to: " + creditScore);
                         break;
 
                     case 9:
                         Console.Write("Enter Age: ");
                         age = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Age Saved.");
+                        Console.WriteLine("Age set to:  "+ age);
                         break;
 
                     case 10:
                         Console.Write("Enter Last Deposit Amount: ");
                         deposit = double.Parse(Console.ReadLine());
-                        Console.WriteLine("Deposit Saved.");
+                        Console.WriteLine("Deposit set to:  "+ deposit);
                         break;
 
                     case 11:
                         Console.Write("Enter Last Withdrawal Amount: ");
                         withdrawal = double.Parse(Console.ReadLine());
-                        Console.WriteLine("Withdrawal Saved.");
+                        Console.WriteLine("Withdrawal set to:  "+ withdrawal);
                         break;
 
                     case 12:
                         Console.Write("Enter Annual Interest Rate: ");
                         annualRate = double.Parse(Console.ReadLine());
-                        Console.WriteLine("Annual Rate Saved.");
+                        Console.WriteLine("Annual Rate set to:  " + annualRate);
                         break;
 
                     case 13:
                         Console.Write("Enter Average Monthly Balance: ");
                         avgBalance = double.Parse(Console.ReadLine());
-                        Console.WriteLine("Average Balance Saved.");
+                        Console.WriteLine("Average Balance set to:  "+ avgBalance);
                         break;
 
                     case 0:
@@ -440,7 +440,8 @@ namespace BankingServices
                     // Account Management
                     case 2:
 
-                        Console.WriteLine("Account Management");
+                        Console.WriteLine("=== TRANSACTION CALCULATOR ===");
+
                         break;
 
 
