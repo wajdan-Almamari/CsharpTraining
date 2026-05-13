@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 
 namespace BankingServices
 {
@@ -11,7 +12,7 @@ namespace BankingServices
             string holderName = "";
             double balance = 0.00;
             bool isActive = false;
-            char accountType=' ';
+            char accountType = ' ';
             bool isEmployed = false;
             double salary = 0.00;
             int creditScore = 0;
@@ -160,105 +161,180 @@ namespace BankingServices
             Console.Write("Select Module: ");
             int choice = int.Parse(Console.ReadLine());
 
-            //switch option 
-            //Task2
-            switch (choice)
+        //switch option 
+          switch (choice)
             {
-                //ATM Services — Tasks 2 
+
+                // ATM Services
                 case 1:
-                    Console.WriteLine("=== ATM SERVICES === ");
+
+                    Console.WriteLine("\n=== ATM SERVICES === ");
+
                     Console.WriteLine("1) Bank Info");
-                    Console.WriteLine("2) Branch Info");
-                    Console.WriteLine("3) Opening Hours");
+                    Console.WriteLine("2) View Account Data");
+                    Console.WriteLine("3) PIN Validation");
+                    Console.WriteLine("4) Receipt Printer");
                     Console.WriteLine("0) Back To Main Menu");
+
                     Console.Write("Select: ");
                     int atmChoice = int.Parse(Console.ReadLine());
+
                     switch (atmChoice)
                     {
 
-                        case 1:// Bank Information
+                        // TASK 2 -> ATM Welcome & Display
+                        case 1:
+
                             Console.WriteLine("National Bank Of Oman");
                             Console.WriteLine("Your Trusted Banking Partner");
-                            Console.WriteLine(" founding: 2026");
-                            break;
-                        case 2:// Branch Information
-                            Console.WriteLine("Muscat branch name ");
-                            Console.WriteLine(" city: Muscat");
-                            Console.WriteLine(" address: Sultan Qaboos Street");
-                            break;
-                        case 3:// Opening Hours
-                            Console.WriteLine("Weekdays: 8 AM - 3 PM");
+                            Console.WriteLine("Founding Year: 1973");
 
-                            Console.WriteLine("Weekend: Closed");
                             break;
 
-                        case 0:// Back To Main Menu
-                            Console.WriteLine("Returning to Main Menu...");
-                            break;
-                        default:
-                            Console.WriteLine("'Invalid selection. Please try again.");
-                            break;
-                    }
 
-                    break;
-                //Account Data Viewer - Tasks 3
-                case 2:
-                    Console.WriteLine("=== VIEW ACCOUNT DATA ===");
-                    Console.WriteLine(" 1) Account Number  ==>    " + accountNumber );
-                    Console.WriteLine(" 2) Holder Name  ==>  " + holderName);
-                    Console.WriteLine(" 3) Balance  ==>  " + balance);
-                    Console.WriteLine(" 4) Status ==>  " + isActive);
-                    Console.WriteLine(" 5) Account Type ==> " + accountType);
-                    Console.WriteLine(" 0) Back");
-                    Console.WriteLine("Data loaded from system setup");
-                    Console.Write("Select Account Data Viewer: ");
-                    int dataChoice = int.Parse(Console.ReadLine());    ;
-                    switch (dataChoice)
-                    {
-                        case 1:
-                            Console.WriteLine(" 1) Account Number  ==>    " + accountNumber);
-                            break; 
+                        // TASK 3 -> Account Data Viewer
                         case 2:
-                            Console.WriteLine(" 2) Holder Name  ==>  " + holderName);
-                            break; 
-                        case 3:
-                            Console.WriteLine(" 3) Balance  ==>  " + balance);
-                            break; 
-                        case 4:
-                            Console.WriteLine(" 4) Status ==>  " + isActive);
-                            break; 
-                        case 5:
-                            Console.WriteLine(" 5) Account Type ==> " + accountType);
-                            break; 
-                        case 0:
-                            Console.WriteLine("Returning to Main Menu...");
-                            break; 
-                        default:
-                            Console.WriteLine("'Invalid selection. Please try again.");
-                            break; 
 
+                            Console.WriteLine("\n=== VIEW ACCOUNT DATA ===");
+                            Console.WriteLine("Data loaded from system setup");
+
+                            Console.WriteLine("1) Account Number");
+                            Console.WriteLine("2) Holder Name");
+                            Console.WriteLine("3) Balance");
+                            Console.WriteLine("4) Status");
+                            Console.WriteLine("5) Account Type");
+                            Console.WriteLine("0) Back");
+
+                            Console.Write("Select field: ");
+                            int dataChoice = int.Parse(Console.ReadLine());
+
+                          
+                            switch (dataChoice)
+                            {
+
+                                case 1:
+                                    Console.WriteLine("Account Number: " + accountNumber);
+                                    break;
+
+                                case 2:
+                                    Console.WriteLine("Holder Name: " + holderName);
+                                    break;
+
+                                case 3:
+                                    Console.WriteLine("Balance: " + balance + "  OMR");
+                                    break;
+
+                                case 4:
+                                    Console.WriteLine("Account Status: " + isActive);
+                                    break;
+
+                                case 5:
+                                    Console.WriteLine("Account Type: " + accountType);
+                                    break;
+
+                                case 0:
+                                    Console.WriteLine("Returning...");
+                                    break;
+
+                                default:
+                                    Console.WriteLine("Field not available.");
+                                    break;
+                            }
+
+                            break;
+
+
+                        // TASK 4 -> ATM PIN Validation
+                        case 3:
+
+                            Console.WriteLine("PIN Validation Screen");
+                            break;
+
+
+                        // TASK 5 -> Receipt Printer
+                        case 4:
+
+                            Console.WriteLine("Receipt Printer");
+                            break;
+
+
+                        // Back To Main Menu
+                        case 0:
+
+                            Console.WriteLine("Returning To Main Menu...");
+                            break;
+
+
+                        // Invalid ATM Selection
+                        default:
+
+                            Console.WriteLine("Invalid selection. Please try again.");
+                            break;
                     }
+
                     break;
+
+
+                // Account Management
+                case 2:
+
+                    Console.WriteLine("Account Management");
+                    break;
+
+
+                // Loan Services
                 case 3:
-                    Console.WriteLine("3: Loan Services  ");
+
+                    Console.WriteLine("Loan Services");
                     break;
+
+
+                // Currency Exchange
                 case 4:
-                    Console.WriteLine("4: Currency Exchange");
+
+                    Console.WriteLine("Currency Exchange");
                     break;
+
+
+                // Credit Card Portal
                 case 5:
-                    Console.WriteLine("5: Credit Card Portal ");
+
+                    Console.WriteLine("Credit Card Portal");
                     break;
+
+
+                // Branch Services
                 case 6:
-                    Console.WriteLine("6: Branch Services ");
+
+                    Console.WriteLine("Branch Services");
                     break;
+
+
+                // Reports & Admin
                 case 7:
-                    Console.WriteLine("7: Reports & Admin ");
+
+                    Console.WriteLine("Reports & Admin");
                     break;
+
+
+                // Exit Program
+                case 0:
+
+                    Console.WriteLine("Thank you for using National Bank Of Oman.");
+                    break;
+
+
+                // Invalid Main Menu Selection
                 default:
-                    Console.WriteLine("Invalid Number ");
+
+                    Console.WriteLine("Invalid Number");
                     break;
             }
-
         }
     }
 }
+            
+
+
+
+
