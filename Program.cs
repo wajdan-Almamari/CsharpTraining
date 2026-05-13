@@ -24,32 +24,33 @@ namespace BankingServices
             double annualRate = 0.00;
             double avgBalance = 0.00;
 
-            //system options
-            //dispay main Menu
-            Console.WriteLine("=== SYSTEM SETUP  —  Enter Account & Customer Data ===");
-            Console.WriteLine("--- Account Profile ---");
-            Console.WriteLine("1)  Account Number       (int)    current: 0");
-            Console.WriteLine("2) Holder Name          (string) current: [not set]");
-            Console.WriteLine("3)  Balance              (double) current: 0.000 OMR");
-            Console.WriteLine("4)  Account Active?      (bool)   current: false   [enter 1=yes / 0=no]");
-            Console.WriteLine("5)  Account Type         (char)   current: -       [enter S / C / F] ");
-            Console.WriteLine("--- Customer Profile -- ");
-            Console.WriteLine("6)  Employed?            (bool)   current: false   [enter 1=yes / 0=no]");
-            Console.WriteLine("7)  Monthly Salary       (double) current: 0.000 OMR ");
-            Console.WriteLine("8)  Credit Score         (int)    current: 0");
-            Console.WriteLine("9)  Age                  (int)    current: 0");
-            Console.WriteLine("--- Transaction Data -");
-            Console.WriteLine("10) Last Deposit Amount  (double) current: 0.000 OMR");
-            Console.WriteLine("11) Last Withdrawal      (double) current: 0.000 OMR");
-            Console.WriteLine("12) Annual Interest Rate (double) current: 0.000   [e.g. 0.035 = 3.5%]");
-            Console.WriteLine("13) Avg Monthly Balance  (double) current: 0.000 OMR");
-            Console.WriteLine("0)  Setup complete — launch Main Menu");
+            
 
 
             int setupChoice = -1;
 
             while (setupChoice != 0)
             {
+                //system options
+                //dispay main Menu
+                Console.WriteLine("=== SYSTEM SETUP  —  Enter Account & Customer Data ===");
+                Console.WriteLine("--- Account Profile ---");
+                Console.WriteLine("1)  Account Number       (int)    current: 0");
+                Console.WriteLine("2) Holder Name          (string) current: [not set]");
+                Console.WriteLine("3)  Balance              (double) current: 0.000 OMR");
+                Console.WriteLine("4)  Account Active?      (bool)   current: false   [enter 1=yes / 0=no]");
+                Console.WriteLine("5)  Account Type         (char)   current: -       [enter S / C / F] ");
+                Console.WriteLine("--- Customer Profile -- ");
+                Console.WriteLine("6)  Employed?            (bool)   current: false   [enter 1=yes / 0=no]");
+                Console.WriteLine("7)  Monthly Salary       (double) current: 0.000 OMR ");
+                Console.WriteLine("8)  Credit Score         (int)    current: 0");
+                Console.WriteLine("9)  Age                  (int)    current: 0");
+                Console.WriteLine("--- Transaction Data -");
+                Console.WriteLine("10) Last Deposit Amount  (double) current: 0.000 OMR");
+                Console.WriteLine("11) Last Withdrawal      (double) current: 0.000 OMR");
+                Console.WriteLine("12) Annual Interest Rate (double) current: 0.000   [e.g. 0.035 = 3.5%]");
+                Console.WriteLine("13) Avg Monthly Balance  (double) current: 0.000 OMR");
+                Console.WriteLine("0)  Setup complete — launch Main Menu");
                 Console.Write("Select option: ");
                 setupChoice = int.Parse(Console.ReadLine());
 
@@ -142,7 +143,8 @@ namespace BankingServices
                         break;
                 }
 
-
+               
+                Console.Clear();
             }//End while loop
 
             // -------------------------------------------------------------------------------------------------------------------------
@@ -175,7 +177,7 @@ namespace BankingServices
                     // ATM Services
                     case 1:
 
-                        Console.WriteLine("\n=== ATM SERVICES === ");
+                        Console.WriteLine("=== ATM SERVICES === ");
 
                         Console.WriteLine("1) Bank Info");
                         Console.WriteLine("2) View Account Data");
@@ -232,7 +234,7 @@ namespace BankingServices
                             // TASK 3 -> Account Data Viewer
                             case 2:
 
-                                Console.WriteLine("\n=== VIEW ACCOUNT DATA ===");
+                                Console.WriteLine("=== VIEW ACCOUNT DATA ===");
                                 Console.WriteLine("Data loaded from system setup");
 
                                 Console.WriteLine("1) Account Number");
@@ -310,7 +312,7 @@ namespace BankingServices
                                             if (enterPin == CORRECT_PIN)
                                             {
                                                 Console.WriteLine("Access granted. Welcome " + holderName);
-                                                break;
+                                                
                                             }
 
                                             else if (enterPin.Length != 4)
@@ -510,10 +512,47 @@ namespace BankingServices
 
 
                                 break;
-                            
+                            //----------------------------------------------------------------
+                            //Task7
+
                             case 2: //2) Account Type Information
-                                Console.WriteLine();
+                                Console.WriteLine("=== ACCOUNT TYPES ===");
+                                Console.WriteLine("1) Savings Account");
+                                Console.WriteLine("2) Current Account");
+                                Console.WriteLine("3) Fixed Deposit");
+                                Console.WriteLine("4) Junior Account");
+                                Console.WriteLine("0) Back.");
+                                Console.Write("Select type: ");
+                                int enterChoise = int.Parse(Console.ReadLine());
+                                  
+                                switch (enterChoise)
+                                {
+                                    case 1: //1) Savings Account
+                                        Console.WriteLine();
+                                        break;
+                                    case 2: //2) Current Account
+                                        Console.WriteLine();
+                                        break;
+                                    case 3: //3) Fixed Deposit
+                                        Console.WriteLine();
+                                        break;
+                                    case 4: //4) Junior Account
+                                        Console.WriteLine();
+                                        break;
+                                    case 0:
+                                        Console.WriteLine();
+                                        break;
+                                    default: Console.WriteLine();
+                                        break;
+                                }
+                                
+
+
+
+
+
                                 break;
+                               // --------------------------------------------------------------------------
                             case 3://3) Loan Eligibility Checker
                                 Console.WriteLine();
                                 break;
@@ -585,6 +624,8 @@ namespace BankingServices
                         break;
 
                 }
+                Console.Clear();
+
             }
 
         }
