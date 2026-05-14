@@ -83,7 +83,7 @@ namespace BankingServices
                     case 5:
                         Console.Write("Enter Account Type S / C / F: ");
                         accountType = char.Parse(Console.ReadLine().ToUpper());
-                        Console.WriteLine("Account Type set to:  " + accountNumber);
+                        Console.WriteLine("Account Type set to:  " + accountType);
                         break;
 
                     case 6:
@@ -143,7 +143,8 @@ namespace BankingServices
                         break;
                 }
 
-               
+                Console.WriteLine("press any key");
+                Console.ReadLine();
                 Console.Clear();
             }//End while loop
 
@@ -624,8 +625,9 @@ namespace BankingServices
                         break;
 
                 }
+                Console.WriteLine("press any key");
+                Console.ReadLine();
                 Console.Clear();
-
             }
 
         }
