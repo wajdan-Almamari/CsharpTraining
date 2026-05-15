@@ -263,25 +263,117 @@ namespace ClinicManagement_System_CMS
                                         break;
 
                                 }//End switch 
+                                Console.WriteLine("Press Enter to continue...");
+                                Console.ReadLine();
                             }//end of while
-                            Console.WriteLine("Press Enter to continue...");
-                            Console.ReadLine();
+                            
                             break;
                         // 2.Doctor Management
                         case 2:
+                            bool backToMainD = false;
+                            while (backToMainD == false)
+                            {
+                                Console.WriteLine(" ╔══════════════════════════════════════╗");
+                                Console.WriteLine(" ║       DOCTOR MANAGEMENT              ║");
+                                Console.WriteLine(" ║══════════════════════════════════════╣");
+                                Console.WriteLine(" ║ 1. Add New Doctor                    ║");
+                                Console.WriteLine(" ║ 2. Display All Doctors               ║");
+                                Console.WriteLine(" ║ 3. Update Consultation Fee           ║");
+                                Console.WriteLine(" ║ 4. Delete Doctor                     ║");
+                                Console.WriteLine(" ║ 0. Back to Main Menu                 ║");
+                                Console.WriteLine(" ╚══════════════════════════════════════╝");
+                                Console.Write(" Enter your choice: ");
+                                int EnterChoiseD = Convert.ToInt32(Console.ReadLine());
+                                switch (EnterChoiseD)
+                                {
+                                    //1. Add New Doctor
+                                    case 1:
+                                        Console.WriteLine("1.Add New Doctor");
+                                        Console.WriteLine("═════════════════════════════════════");
+                                        if (doctorCount == MAX_DOCTORS)
+                                        {
+                                            Console.WriteLine("No available doctor slots");
+                                        }
+                                        else
+                                        {
 
-                            Console.WriteLine(" ╔══════════════════════════════════════╗");
-                            Console.WriteLine(" ║       DOCTOR MANAGEMENT              ║");
-                            Console.WriteLine(" ║══════════════════════════════════════╣");
-                            Console.WriteLine(" ║ 1. Add New Doctor                    ║");
-                            Console.WriteLine(" ║ 2. Display All Doctors               ║");
-                            Console.WriteLine(" ║ 3. Update Consultation Fee           ║");
-                            Console.WriteLine(" ║ 4. Delete Doctor                     ║");
-                            Console.WriteLine(" ║ 0. Back to Main Men                  ║");
-                            Console.WriteLine(" ╚══════════════════════════════════════╝");
-                            Console.Write(" Enter your choice: ");
-                            int EnterChoiseD = Convert.ToInt32(Console.ReadLine());
+                                            Console.Write("Enter Doctor Name : ");
+                                            string Dname = Console.ReadLine();
+                                            if (Dname == "")
+                                            {
+                                                Console.WriteLine("Error..Name cannot be empty");
+                                            }
+                                            else
+                                            {
+                                                Console.Write("Enter Doctor Specialization: ");
+                                                string spec = Console.ReadLine();
+                                                if (spec == "")
+                                                {
+                                                    Console.WriteLine("Error..Specialization cannot be empty");
+                                                }
+                                                else
+                                                {
+                                                    Console.Write("Enter Consultation Fee: ");
 
+                                                    double fee = Convert.ToDouble(Console.ReadLine());
+                                                    if (fee < 0)
+                                                    {
+                                                        Console.WriteLine("Error..Invalid fee");
+                                                    }
+                                                    else
+                                                    {
+                                                        if (!d1Active)
+                                                        {
+                                                           d1Name = Dname;
+                                                           d1Spec = spec;
+                                                           d1Fee = fee;
+                                                           d1Active = true;
+                                                        }
+                                                        else if (!d2Active)
+                                                        {
+                                                            d2Name = Dname;
+                                                            d2Spec = spec;
+                                                            d2Fee = fee;
+                                                            d2Active = true;
+                                                        }
+                                                        Console.WriteLine("Doctor added successfully");
+                                                        doctorCount++;
+                                                        Console.WriteLine("Enter any key to clear");
+                                                        Console.ReadLine();
+                                                        Console.Clear();
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                
+                                        break;
+                                    //2. Display All Doctors
+                                    case 2:
+                                        Console.WriteLine("2.Display All Doctors");
+                                        Console.WriteLine("═════════════════════════════════════");
+
+                                        break;
+                                    //3. Update Consultation Fee
+                                    case 3:
+                                        Console.WriteLine("3.Update Consultation Fee");
+                                        Console.WriteLine("═════════════════════════════════════");
+
+                                        break;
+                                    //4. Delete Doctor
+                                    case 4:
+                                        Console.WriteLine("4.Delete Doctor");
+                                        Console.WriteLine("═════════════════════════════════════");
+
+                                        break;
+                                    //0. Back to Main Menu
+                                    case 0:
+                                        backToMainD = true;
+                                        break;
+                                }
+                                Console.WriteLine("Press Enter to continue...");
+                                Console.ReadLine();
+                            }//end of while
                             break;
                         //3.Appointment Management
                         case 3:
@@ -292,7 +384,7 @@ namespace ClinicManagement_System_CMS
                             Console.WriteLine(" ║ 2. Display All Appointments          ║");
                             Console.WriteLine(" ║ 3. Update Appointment Status         ║");
                             Console.WriteLine(" ║ 4. Cancel Appointment                ║");
-                            Console.WriteLine(" ║ 0. Back to Main Men                  ║");
+                            Console.WriteLine(" ║ 0. Back to Main Menu                 ║");
                             Console.WriteLine(" ╚══════════════════════════════════════╝");
                             Console.Write(" Enter your choice: ");
                             int EnterChoiseA = Convert.ToInt32(Console.ReadLine());
