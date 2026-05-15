@@ -188,8 +188,34 @@ namespace ClinicManagement_System_CMS
                                         break;
                                     //3. Update Patient Phone
                                     case 3:
+                                        Console.Write("Enter Patient Name to update phone:  ");
+                                        string Pname = Console.ReadLine();
+                                        if (p1Active && p1Name== Pname)
+                                        {
+                                            Console.Write("Enter new phone number:  ");
+                                            string newPhone = Console.ReadLine();
+                                            p1Phone = newPhone;
+                                            Console.WriteLine("Updated");
+                                        }
+                                        else if (p2Active && p2Name == Pname)
+                                        {
+                                            Console.Write("Enter new phone number:  ");
+                                            string newPhone = Console.ReadLine();
+                                            p2Phone = newPhone;
+                                            Console.WriteLine("Updated");
+                                        }
+                                        else if (p3Active && p3Name == Pname)
+                                        {
+                                            Console.Write("Enter new phone number:  ");
+                                            string newPhone = Console.ReadLine();
+                                            p3Phone = newPhone;
+                                            Console.WriteLine("Updated");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Patient not found.");
+                                        }
 
-                                        Console.WriteLine();
                                         break;
                                     //4. Delete Patient
                                     case 4:
