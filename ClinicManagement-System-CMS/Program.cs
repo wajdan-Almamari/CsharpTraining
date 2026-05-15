@@ -190,8 +190,9 @@ namespace ClinicManagement_System_CMS
                                     case 3:
                                         Console.Write("Enter Patient Name to update phone:  ");
                                         string Pname = Console.ReadLine();
-                                        if (p1Active && p1Name== Pname)
+                                        if (p1Active && p1Name == Pname)
                                         {
+                                            Console.WriteLine("Current Phone: " + p1Phone);
                                             Console.Write("Enter new phone number:  ");
                                             string newPhone = Console.ReadLine();
                                             p1Phone = newPhone;
@@ -199,13 +200,15 @@ namespace ClinicManagement_System_CMS
                                         }
                                         else if (p2Active && p2Name == Pname)
                                         {
+                                            Console.WriteLine("Current Phone: " + p2Phone);
                                             Console.Write("Enter new phone number:  ");
                                             string newPhone = Console.ReadLine();
-                                            p2Phone = newPhone;
+                                            p2Phone = newPhone;         
                                             Console.WriteLine("Updated");
                                         }
                                         else if (p3Active && p3Name == Pname)
                                         {
+                                            Console.WriteLine("Current Phone: " + p3Phone);
                                             Console.Write("Enter new phone number:  ");
                                             string newPhone = Console.ReadLine();
                                             p3Phone = newPhone;
@@ -219,8 +222,41 @@ namespace ClinicManagement_System_CMS
                                         break;
                                     //4. Delete Patient
                                     case 4:
-                                        Console.WriteLine();
-                                        break;
+                                        Console.Write("Enter Patient Name to delete: ");
+                                        string deleteName = Console.ReadLine();
+                                        if (p1Active && p1Name == deleteName)
+                                        {
+                                            p1Active = false;
+                                            p1Name = "";
+                                            p1Age = 0;
+                                            p1Phone = "";
+                                            patientCount--;
+                                            Console.WriteLine("Patient deleted.");
+
+                                        }
+                                        else if (p2Active && p2Name == deleteName)
+                                        {
+                                            p2Active = false;
+                                            p2Name = "";
+                                            p2Age = 0;
+                                            p2Phone = "";
+                                            patientCount--;
+                                            Console.WriteLine("Patient deleted.");
+                                        }
+                                        else if (p3Active && p3Name == deleteName)
+                                        {
+                                            p3Active = false;
+                                            p3Name = "";
+                                            p3Age = 0;
+                                            p3Phone = "";
+                                            patientCount--;
+                                            Console.WriteLine("Patient deleted.");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Patient not found");
+                                        }
+                                            break;
                                     //0. Back to Main Menu 
                                     case 0:
                                         backToMainP = true;
