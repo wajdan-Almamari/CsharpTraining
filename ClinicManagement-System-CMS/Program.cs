@@ -1,4 +1,6 @@
-﻿namespace ClinicManagement_System_CMS
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ClinicManagement_System_CMS
 {
     internal class Program
     {
@@ -141,34 +143,47 @@
                                         if (patientCount == 0)
                                         {
                                             Console.WriteLine("No patients registered");
-                                           
+
                                         }
-                                        if (p1Active)
+                                        else
                                         {
-                                            Console.WriteLine("═════════════════════════════════════");
-                                            Console.WriteLine("Patient #1");
-                                            Console.WriteLine("Name : " + p1Name);
-                                            Console.WriteLine("Age : " + p1Age);
-                                            Console.WriteLine("Phone : " + p1Phone);
-                                        }
-                                        if (p2Active)
-                                        {
-                                            Console.WriteLine("═════════════════════════════════════");
-                                            Console.WriteLine("Patient #2");
-                                            Console.WriteLine("Name : " + p2Name);
-                                            Console.WriteLine("Age : " + p2Age);
-                                            Console.WriteLine("Phone : " + p2Phone);
-                                        }
-                                         if (p3Active)
-                                        {
-                                            Console.WriteLine("═════════════════════════════════════");
-                                            Console.WriteLine("Patient #3");
-                                            Console.WriteLine("Name : " + p3Name);
-                                            Console.WriteLine("Age : " + p3Age);
-                                            Console.WriteLine("Phone : " + p3Phone);
-                                        }
 
 
+                                            int displayNum = 1;
+                                            if (p1Active)
+                                            {
+
+                                                Console.WriteLine("═════════════════════════════════════");
+                                                Console.WriteLine("Patient #" + displayNum);
+                                                Console.WriteLine("Name : " + p1Name);
+                                                Console.WriteLine("Age : " + p1Age);
+                                                Console.WriteLine("Phone : " + p1Phone);
+                                                displayNum++;
+
+
+                                            }
+                                            if (p2Active)
+                                            {
+                                                Console.WriteLine("═════════════════════════════════════");
+                                                Console.WriteLine("Patient #" + displayNum);
+                                                Console.WriteLine("Name : " + p2Name);
+                                                Console.WriteLine("Age : " + p2Age);
+                                                Console.WriteLine("Phone : " + p2Phone);
+                                                displayNum++;
+
+                                            }
+                                            if (p3Active)
+                                            {
+                                                Console.WriteLine("═════════════════════════════════════");
+                                                Console.WriteLine("Patient #" + displayNum);
+                                                Console.WriteLine("Name : " + p3Name);
+                                                Console.WriteLine("Age : " + p3Age);
+                                                Console.WriteLine("Phone : " + p3Phone);
+                                                displayNum++;
+                                            }
+
+
+                                        }
 
                                         break;
                                     //3. Update Patient Phone
