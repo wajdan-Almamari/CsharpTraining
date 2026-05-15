@@ -350,41 +350,93 @@ namespace ClinicManagement_System_CMS
                                         break;
                                     //2. Display All Doctors
                                     case 2:
-                                        Console.WriteLine("2.Display All Doctors");
+                                    
+
+                                        Console.WriteLine("2. Display All Doctors");
                                         Console.WriteLine("═════════════════════════════════════");
 
-                                        break;
-                                    //3. Update Consultation Fee
-                                    case 3:
-                                        Console.WriteLine("3.Update Consultation Fee");
-                                        Console.WriteLine("═════════════════════════════════════");
                                         if (doctorCount == 0)
                                         {
                                             Console.WriteLine("No doctors registered.");
                                         }
-                                        
-                                        else 
+
+                                        else
                                         {
                                             int displayNum = 1;
-                                            if (d1Active) { 
+
+                                            if (d1Active)
+                                            {
                                                 Console.WriteLine("═════════════════════════════════════");
-                                            Console.WriteLine(" Doctor #" + displayNum);
-                                            Console.WriteLine(" Name : " + d1Name);
-                                            Console.WriteLine(" Specialization  : " + d1Spec);
-                                            Console.WriteLine(" Consultation Fee : " + d1Fee);
-                                            displayNum++;
+                                                Console.WriteLine("Doctor #" + displayNum);
+                                                Console.WriteLine("Name : " + d1Name);
+                                                Console.WriteLine("Specialization : " + d1Spec);
+                                                Console.WriteLine("Consultation Fee : " + d1Fee);
+
+                                                displayNum++;
+                                            }
+
+                                            if (d2Active)
+                                            {
+                                                Console.WriteLine("═════════════════════════════════════");
+                                                Console.WriteLine("Doctor #" + displayNum);
+                                                Console.WriteLine("Name : " + d2Name);
+                                                Console.WriteLine("Specialization : " + d2Spec);
+                                                Console.WriteLine("Consultation Fee : " + d2Fee);
+
+                                                displayNum++;
+                                            }
                                         }
-                                        if (d2Active)
+
+                                        break;
+
+                                    //3. Update Consultation Fee
+                                    case 3:
+
+                                        Console.Write("Enter Doctor Name to update fee: ");
+                                        string doctorName = Console.ReadLine();
+
+                                        if (d1Active && d1Name == doctorName)
                                         {
-                                            Console.WriteLine("═════════════════════════════════════");
-                                            Console.WriteLine(" Doctor #" + displayNum);
-                                            Console.WriteLine(" Name : " + d2Name);
-                                            Console.WriteLine(" Specialization  : " + d2Spec);
-                                            Console.WriteLine(" Consultation Fee : " + d2Fee);
-                                            displayNum++;
+                                            Console.Write("Enter New Consultation Fee: ");
+                                            double newFee = Convert.ToDouble(Console.ReadLine());
+
+                                            if (newFee < 0)
+                                            {
+                                                Console.WriteLine("Invalid fee.");
+                                            }
+
+                                            else
+                                            {
+                                                d1Fee = newFee;
+
+                                                Console.WriteLine("Fee updated.");
+                                            }
                                         }
-                                }
-                                            break;
+
+                                        else if (d2Active && d2Name == doctorName)
+                                        {
+                                            Console.Write("Enter New Consultation Fee: ");
+                                            double newFee = Convert.ToDouble(Console.ReadLine());
+
+                                            if (newFee < 0)
+                                            {
+                                                Console.WriteLine("Invalid fee.");
+                                            }
+
+                                            else
+                                            {
+                                                d2Fee = newFee;
+
+                                                Console.WriteLine("Fee updated.");
+                                            }
+                                        }
+
+                                        else
+                                        {
+                                            Console.WriteLine("Doctor not found.");
+                                        }
+
+                                        break;
                                     //4. Delete Doctor
                                     case 4:
                                         Console.WriteLine("4.Delete Doctor");
