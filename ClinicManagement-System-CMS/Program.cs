@@ -30,181 +30,210 @@
             string a3Patient = ""; string a3Doctor = ""; string a3Date = "";
             string a3Status = ""; bool a3Active = false; int appointmentCount = 0;
             // ── REGION 2: Main Menu   ───────────────────────────────────── 
-            bool choiceP = false;
-            while (choiceP == false)
+            bool backToMain = false;
+            while (backToMain == false)
             {
-
-
-                Console.WriteLine(" ╔══════════════════════════════════════╗");
-                Console.WriteLine(" ║     CLINIC MANAGEMENT SYSTEM         ║");
-                Console.WriteLine(" ║══════════════════════════════════════╣");
-                Console.WriteLine(" ║  1. Patient Management               ║");
-                Console.WriteLine(" ║  2. Doctor Management                ║");
-                Console.WriteLine(" ║  3. Appointment Management           ║");
-                Console.WriteLine(" ║  0. Exit                             ║");
-                Console.WriteLine(" ╚══════════════════════════════════════╝");
-                Console.Write(" Enter your choice: ");
-
-                int EnterChoise = int.Parse(Console.ReadLine());
-
-                switch (EnterChoise)
                 {
-                    //1. Patient Management
-                    case 1:
-                        Console.WriteLine(" ╔══════════════════════════════════════╗");
-                        Console.WriteLine(" ║       PATIENT MANAGEMENT             ║");
-                        Console.WriteLine(" ║══════════════════════════════════════╣");
-                        Console.WriteLine(" ║ 1. Add New Patient                   ║");
-                        Console.WriteLine(" ║ 2. Display All Patients              ║");
-                        Console.WriteLine(" ║ 3. Update Patient Phone              ║");
-                        Console.WriteLine(" ║ 4. Delete Patient                    ║");
-                        Console.WriteLine(" ║ 0. Back to Main Men                  ║");
-                        Console.WriteLine(" ╚══════════════════════════════════════╝");
-                        Console.Write(" Enter your choice: ");
 
-                        int EnterChoiseP = int.Parse(Console.ReadLine());
 
-                        switch (EnterChoiseP)
-                        {
-                            //1. Add New Patient 
-                            case 1:
+                    Console.WriteLine(" ╔══════════════════════════════════════╗");
+                    Console.WriteLine(" ║     CLINIC MANAGEMENT SYSTEM         ║");
+                    Console.WriteLine(" ║══════════════════════════════════════╣");
+                    Console.WriteLine(" ║  1. Patient Management               ║");
+                    Console.WriteLine(" ║  2. Doctor Management                ║");
+                    Console.WriteLine(" ║  3. Appointment Management           ║");
+                    Console.WriteLine(" ║  0. Exit                             ║");
+                    Console.WriteLine(" ╚══════════════════════════════════════╝");
+                    Console.Write(" Enter your choice: ");
 
-                                bool choise = false;
-                                while (choise == false)
+                    int EnterChoise = Convert.ToInt32(Console.ReadLine());
+
+                    switch (EnterChoise)
+                    {
+                        //1. Patient Management
+                        case 1:
+                            bool backToMainP = false;
+                            while (backToMainP== false)
+                            {
+                                Console.WriteLine(" ╔══════════════════════════════════════╗");
+                                Console.WriteLine(" ║       PATIENT MANAGEMENT             ║");
+                                Console.WriteLine(" ║══════════════════════════════════════╣");
+                                Console.WriteLine(" ║ 1. Add New Patient                   ║");
+                                Console.WriteLine(" ║ 2. Display All Patients              ║");
+                                Console.WriteLine(" ║ 3. Update Patient Phone              ║");
+                                Console.WriteLine(" ║ 4. Delete Patient                    ║");
+                                Console.WriteLine(" ║ 0. Back to Main Men                  ║");
+                                Console.WriteLine(" ╚══════════════════════════════════════╝");
+                                Console.Write(" Enter your choice: ");
+
+                                int EnterChoiseP = Convert.ToInt32(Console.ReadLine());
+
+                                switch (EnterChoiseP)
                                 {
-                                    Console.WriteLine("1.Add New Patient");
-                                    if (patientCount == MAX_PATIENTS)
-                                    {
-                                        Console.WriteLine("Clinic is full. Cannot add more patients.");
+                                    //1. Add New Patient 
+                                    case 1:
 
-                                    }
-                                    Console.WriteLine("Enter your Name");
-                                    string name = Console.ReadLine();
-                                    if (name == " ")
-                                    {
-                                        Console.WriteLine("error ");
-                                    }
-                                    Console.WriteLine("Enter your Age");
-                                    int age = Convert.ToInt32(Console.ReadLine());
-                                    if (age < 1 || age > 120)
-                                    {
-                                        Console.WriteLine("error ");
-                                    }
-                                    Console.WriteLine("Enter your Phone");
-                                    string phone = Console.ReadLine();
-                                    if (!p1Active)
-                                    {
-                                        p1Name = name;
-                                        p1Age = age;
-                                        p1Phone = phone;
-                                        p1Active = true;
-                                    }
-                                    else if (!p2Active)
-                                    {
-                                        p2Name = name;
-                                        p2Age = age;
-                                        p2Phone = phone;
-                                        p2Active = true;
-                                    }
-                                    else if (!p3Active)
-                                    {
-                                        p3Name = name;
-                                        p3Age = age;
-                                        p3Phone = phone;
-                                        p3Active = true;
-                                    }
+                                        // bool choise = false;
+                                        //while (choise == false)
 
-                                    patientCount++;
-                                    Console.WriteLine("Patient added successfully");
+                                        Console.WriteLine("1.Add New Patient");
+                                        if (patientCount == MAX_PATIENTS)
+                                        {
+                                            Console.WriteLine("Clinic is full. Cannot add more patients.");
 
-                                    Console.WriteLine("Enter any key to clear");
-                                    Console.ReadLine();
-                                    Console.Clear();
-                                }//end of while
-                                break;
-                            //2. Display All Patients  
-                            case 2:
-                                if (patientCount == 0)
-                                {
-                                    Console.WriteLine("No patients registered");
-                                    return;
-                                }
-                                else if (p1Active)
-                                {
-                                    Console.WriteLine(" p1Name : " + p1Name);
-                                    Console.WriteLine(" p1Age : " + p1Age);
-                                    Console.WriteLine(" p1Phone : " + p1Phone);
-                                }
-                                else if (p2Active)
-                                {
-                                    Console.WriteLine(" p2Name : " + p2Name);
-                                    Console.WriteLine(" p2Age : " + p2Age);
-                                    Console.WriteLine(" p2Phone : " + p2Phone);
-                                }
-                                else if (p3Active)
-                                {
-                                    Console.WriteLine(" p3Name : " + p3Name);
-                                    Console.WriteLine(" p3Age : " + p3Age);
-                                    Console.WriteLine(" p3Phone : " + p3Phone);
-                                }
+                                        }
+                                        else
+                                        {
+                                            Console.Write("Enter your Name :  ");
+                                            string name = Console.ReadLine();
+                                            if (name == "")
+                                            {
+                                                Console.WriteLine("error, Name cannot be empty. ");
+                                            }
+                                            else
+                                            {
+                                                Console.Write("Enter your Age:  ");
+                                                int age = Convert.ToInt32(Console.ReadLine());
+                                                if (age < 1 || age > 120)
+                                                {
+                                                    Console.WriteLine("error..Invalid age ");
+                                                }
+                                                else
+                                                {
+                                                    Console.Write("Enter your Phone:  ");
+                                                    string phone = Console.ReadLine();
+                                                    if (!p1Active)
+                                                    {
+                                                        p1Name = name;
+                                                        p1Age = age;
+                                                        p1Phone = phone;
+                                                        p1Active = true;
+                                                    }
+                                                    else if (!p2Active)
+                                                    {
+                                                        p2Name = name;
+                                                        p2Age = age;
+                                                        p2Phone = phone;
+                                                        p2Active = true;
+                                                    }
+                                                    else if (!p3Active)
+                                                    {
+                                                        p3Name = name;
+                                                        p3Age = age;
+                                                        p3Phone = phone;
+                                                        p3Active = true;
+                                                    }
+
+                                                    patientCount++;
+                                                    Console.WriteLine("Patient added successfully");
+
+                                                    Console.WriteLine("Enter any key to clear");
+                                                    Console.ReadLine();
+                                                    Console.Clear();
+                                                }
+                                            }
+                                        }
+
+                                        break;
+
+                                    //2. Display All Patients  
+                                    case 2:
+                                        if (patientCount == 0)
+                                        {
+                                            Console.WriteLine("No patients registered");
+                                           
+                                        }
+                                        if (p1Active)
+                                        {
+                                            Console.WriteLine("═════════════════════════════════════");
+                                            Console.WriteLine("Patient #1");
+                                            Console.WriteLine("Name : " + p1Name);
+                                            Console.WriteLine("Age : " + p1Age);
+                                            Console.WriteLine("Phone : " + p1Phone);
+                                        }
+                                        if (p2Active)
+                                        {
+                                            Console.WriteLine("═════════════════════════════════════");
+                                            Console.WriteLine("Patient #2");
+                                            Console.WriteLine("Name : " + p2Name);
+                                            Console.WriteLine("Age : " + p2Age);
+                                            Console.WriteLine("Phone : " + p2Phone);
+                                        }
+                                         if (p3Active)
+                                        {
+                                            Console.WriteLine("═════════════════════════════════════");
+                                            Console.WriteLine("Patient #3");
+                                            Console.WriteLine("Name : " + p3Name);
+                                            Console.WriteLine("Age : " + p3Age);
+                                            Console.WriteLine("Phone : " + p3Phone);
+                                        }
 
 
 
-                                break;
-                            //3. Update Patient Phone
-                            case 3:
+                                        break;
+                                    //3. Update Patient Phone
+                                    case 3:
 
-                                Console.WriteLine();
-                                break;
-                            //4. Delete Patient
-                            case 4:
-                                Console.WriteLine();
-                                break;
-                            //0. Back to Main Menu 
-                            case 0:
-                                Console.WriteLine();
-                                break;
+                                        Console.WriteLine();
+                                        break;
+                                    //4. Delete Patient
+                                    case 4:
+                                        Console.WriteLine();
+                                        break;
+                                    //0. Back to Main Menu 
+                                    case 0:
+                                        backToMainP = true;
+                                        break;
 
-                        }//End switch 
+                                }//End switch 
+                            }//end of while
+                            Console.WriteLine("Press Enter to continue...");
+                            Console.ReadLine();
+                            break;
+                        // 2.Doctor Management
+                        case 2:
 
-                        break;
-                    // 2.Doctor Management
-                    case 2:
+                            Console.WriteLine(" ╔══════════════════════════════════════╗");
+                            Console.WriteLine(" ║       DOCTOR MANAGEMENT              ║");
+                            Console.WriteLine(" ║══════════════════════════════════════╣");
+                            Console.WriteLine(" ║ 1. Add New Doctor                    ║");
+                            Console.WriteLine(" ║ 2. Display All Doctors               ║");
+                            Console.WriteLine(" ║ 3. Update Consultation Fee           ║");
+                            Console.WriteLine(" ║ 4. Delete Doctor                     ║");
+                            Console.WriteLine(" ║ 0. Back to Main Men                  ║");
+                            Console.WriteLine(" ╚══════════════════════════════════════╝");
+                            Console.Write(" Enter your choice: ");
+                            int EnterChoiseD = Convert.ToInt32(Console.ReadLine());
 
-                        Console.WriteLine(" ╔══════════════════════════════════════╗");
-                        Console.WriteLine(" ║       DOCTOR MANAGEMENT              ║");
-                        Console.WriteLine(" ║══════════════════════════════════════╣");
-                        Console.WriteLine(" ║ 1. Add New Doctor                    ║");
-                        Console.WriteLine(" ║ 2. Display All Doctors               ║");
-                        Console.WriteLine(" ║ 3. Update Consultation Fee           ║");
-                        Console.WriteLine(" ║ 4. Delete Doctor                     ║");
-                        Console.WriteLine(" ║ 0. Back to Main Men                  ║");
-                        Console.WriteLine(" ╚══════════════════════════════════════╝");
-                        Console.Write(" Enter your choice: ");
-                        int EnterChoiseD = int.Parse(Console.ReadLine());
+                            break;
+                        //3.Appointment Management
+                        case 3:
+                            Console.WriteLine(" ╔══════════════════════════════════════╗");
+                            Console.WriteLine(" ║       APPOINTMENT MANAGEMENT         ║");
+                            Console.WriteLine(" ║══════════════════════════════════════╣");
+                            Console.WriteLine(" ║ 1. Book New Appointment              ║");
+                            Console.WriteLine(" ║ 2. Display All Appointments          ║");
+                            Console.WriteLine(" ║ 3. Update Appointment Status         ║");
+                            Console.WriteLine(" ║ 4. Cancel Appointment                ║");
+                            Console.WriteLine(" ║ 0. Back to Main Men                  ║");
+                            Console.WriteLine(" ╚══════════════════════════════════════╝");
+                            Console.Write(" Enter your choice: ");
+                            int EnterChoiseA = Convert.ToInt32(Console.ReadLine());
 
-                        break;
-                    //3.Appointment Management
-                    case 3:
-                        Console.WriteLine(" ╔══════════════════════════════════════╗");
-                        Console.WriteLine(" ║       APPOINTMENT MANAGEMENT         ║");
-                        Console.WriteLine(" ║══════════════════════════════════════╣");
-                        Console.WriteLine(" ║ 1. Book New Appointment              ║");
-                        Console.WriteLine(" ║ 2. Display All Appointments          ║");
-                        Console.WriteLine(" ║ 3. Update Appointment Status         ║");
-                        Console.WriteLine(" ║ 4. Cancel Appointment                ║");
-                        Console.WriteLine(" ║ 0. Back to Main Men                  ║");
-                        Console.WriteLine(" ╚══════════════════════════════════════╝");
-                        Console.Write(" Enter your choice: ");
-                        int EnterChoiseA = int.Parse(Console.ReadLine());
+                            break;
+                        //0.Exit
+                        case 0:
+                            backToMain = true;
 
-                        break;
-                    //0.Exit
-                    case 0:
-                        Console.WriteLine();
-                        break;
+                            Console.WriteLine("Press Enter to continue...");
+                            Console.ReadLine();
+                            Console.Clear();
 
-                }//EndSwitch
+                            break;
+
+                    }//EndSwitch
+                   
+                }
             }
         }
     }
