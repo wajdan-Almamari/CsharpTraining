@@ -34,8 +34,7 @@ namespace ClinicManagement_System_CMS
             // ── REGION 2: Main Menu   ───────────────────────────────────── 
             bool backToMain = false;
             while (backToMain == false)
-            {
-                {
+            { 
 
 
                     Console.WriteLine(" ╔══════════════════════════════════════╗");
@@ -55,7 +54,7 @@ namespace ClinicManagement_System_CMS
                         //1. Patient Management
                         case 1:
                             bool backToMainP = false;
-                            while (backToMainP== false)
+                            while (backToMainP == false)
                             {
                                 Console.WriteLine(" ╔══════════════════════════════════════╗");
                                 Console.WriteLine(" ║       PATIENT MANAGEMENT             ║");
@@ -203,7 +202,7 @@ namespace ClinicManagement_System_CMS
                                             Console.WriteLine("Current Phone: " + p2Phone);
                                             Console.Write("Enter new phone number:  ");
                                             string newPhone = Console.ReadLine();
-                                            p2Phone = newPhone;         
+                                            p2Phone = newPhone;
                                             Console.WriteLine("Updated");
                                         }
                                         else if (p3Active && p3Name == Pname)
@@ -256,7 +255,7 @@ namespace ClinicManagement_System_CMS
                                         {
                                             Console.WriteLine("Patient not found");
                                         }
-                                            break;
+                                        break;
                                     //0. Back to Main Menu 
                                     case 0:
                                         backToMainP = true;
@@ -266,7 +265,7 @@ namespace ClinicManagement_System_CMS
                                 Console.WriteLine("Press Enter to continue...");
                                 Console.ReadLine();
                             }//end of while
-                            
+
                             break;
                         // 2.Doctor Management
                         case 2:
@@ -350,7 +349,7 @@ namespace ClinicManagement_System_CMS
                                         break;
                                     //2. Display All Doctors
                                     case 2:
-                                    
+
 
                                         Console.WriteLine("2. Display All Doctors");
                                         Console.WriteLine("═════════════════════════════════════");
@@ -475,7 +474,7 @@ namespace ClinicManagement_System_CMS
 
                                         break;
 
-                                  
+
                                     //0. Back to Main Menu
                                     case 0:
                                         backToMainD = true;
@@ -487,8 +486,11 @@ namespace ClinicManagement_System_CMS
                             break;
                         //3.Appointment Management
                         case 3:
-                           
-                            Console.WriteLine(" ╔══════════════════════════════════════╗");
+                            bool backToMainA = false;
+
+                            while (backToMainA == false)
+                            {
+                                Console.WriteLine(" ╔══════════════════════════════════════╗");
                             Console.WriteLine(" ║       APPOINTMENT MANAGEMENT         ║");
                             Console.WriteLine(" ║══════════════════════════════════════╣");
                             Console.WriteLine(" ║ 1. Book New Appointment              ║");
@@ -499,148 +501,316 @@ namespace ClinicManagement_System_CMS
                             Console.WriteLine(" ╚══════════════════════════════════════╝");
                             Console.Write(" Enter your choice: ");
                             int EnterChoiseA = Convert.ToInt32(Console.ReadLine());
-                            switch (EnterChoiseA)
-                            {
-                                //1. Book New Appointment
-                                case 1: 
-                                    Console.WriteLine("1.Book New Appointment");
-                                    Console.WriteLine("═════════════════════════════════════");
-                                    if (appointmentCount == MAX_APPOINTMENTS)
-                                    {
-                                        Console.WriteLine("No available appointment slots.");
-
-                                    }
-                                    else if (patientCount == 0 || doctorCount == 0)
-                                    {
-                                        Console.WriteLine("Please add patients and doctors first");
-
-                                    }else
-                                    {
-
-                                        Console.WriteLine("Choose Patient:");
-
-                                        if (p1Active)
-                                            Console.WriteLine("1. " + p1Name);
-                                        
-                                        if (p2Active)
-                                            Console.WriteLine("2. " + p2Name);
-                                        if (p3Active)
-                                            Console.WriteLine("3. " + p3Name);
-
-                                        Console.Write("Enter patient choice: ");
-                                        int patientChoice = Convert.ToInt32(Console.ReadLine());
-                                        string chosenPatient = "";
-
-                                        if (patientChoice == 1 && p1Active)
+                                switch (EnterChoiseA)
+                                {
+                                    //1. Book New Appointment
+                                    case 1:
+                                        Console.WriteLine("1.Book New Appointment");
+                                        Console.WriteLine("═════════════════════════════════════");
+                                        if (appointmentCount == MAX_APPOINTMENTS)
                                         {
-                                            chosenPatient = p1Name;
+                                            Console.WriteLine("No available appointment slots.");
+
                                         }
-                                        else if (patientChoice == 2 && p2Active)
+                                        else if (patientCount == 0 || doctorCount == 0)
                                         {
-                                            chosenPatient = p2Name;
-                                        }
-                                        else if (patientChoice == 3 && p3Active)
-                                        {
-                                            chosenPatient = p3Name;
+                                            Console.WriteLine("Please add patients and doctors first");
+
                                         }
                                         else
                                         {
-                                            Console.WriteLine("Invalid patient choice.");
-                                        }
 
-                                        if (chosenPatient != "")
-                                        {
-                                            Console.WriteLine("Choose Doctor:");
+                                            Console.WriteLine("Choose Patient:");
 
-                                            if (d1Active) Console.WriteLine("1. " + d1Name);
-                                            if (d2Active) Console.WriteLine("2. " + d2Name);
+                                            if (p1Active)
+                                                Console.WriteLine("1. " + p1Name);
 
-                                            Console.Write("Enter doctor choice: ");
-                                            int doctorChoice = Convert.ToInt32(Console.ReadLine());
+                                            if (p2Active)
+                                                Console.WriteLine("2. " + p2Name);
+                                            if (p3Active)
+                                                Console.WriteLine("3. " + p3Name);
 
-                                            string chosenDoctor = "";
+                                            Console.Write("Enter patient choice: ");
+                                            int patientChoice = Convert.ToInt32(Console.ReadLine());
+                                            string chosenPatient = "";
 
-                                            if (doctorChoice == 1 && d1Active)
+                                            if (patientChoice == 1 && p1Active)
                                             {
-                                                chosenDoctor = d1Name;
+                                                chosenPatient = p1Name;
                                             }
-                                            else if (doctorChoice == 2 && d2Active)
+                                            else if (patientChoice == 2 && p2Active)
                                             {
-                                                chosenDoctor = d2Name;
+                                                chosenPatient = p2Name;
+                                            }
+                                            else if (patientChoice == 3 && p3Active)
+                                            {
+                                                chosenPatient = p3Name;
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Invalid doctor choice.");
+                                                Console.WriteLine("Invalid patient choice.");
                                             }
 
-                                            if (chosenDoctor != "")
+                                            if (chosenPatient != "")
                                             {
-                                                Console.Write("Enter appointment date DD/MM/YYYY: ");
-                                                string date = Console.ReadLine();
+                                                Console.WriteLine("Choose Doctor:");
 
-                                                if (a1Active && a1Patient == chosenPatient && a1Doctor == chosenDoctor && a1Date == date)
+                                                if (d1Active) Console.WriteLine("1. " + d1Name);
+                                                if (d2Active) Console.WriteLine("2. " + d2Name);
+
+                                                Console.Write("Enter doctor choice: ");
+                                                int doctorChoice = Convert.ToInt32(Console.ReadLine());
+
+                                                string chosenDoctor = "";
+
+                                                if (doctorChoice == 1 && d1Active)
                                                 {
-                                                    Console.WriteLine("Duplicate appointment.");
+                                                    chosenDoctor = d1Name;
                                                 }
-                                                else if (a2Active && a2Patient == chosenPatient && a2Doctor == chosenDoctor && a2Date == date)
+                                                else if (doctorChoice == 2 && d2Active)
                                                 {
-                                                    Console.WriteLine("Duplicate appointment.");
-                                                }
-                                                else if (a3Active && a3Patient == chosenPatient && a3Doctor == chosenDoctor && a3Date == date)
-                                                {
-                                                    Console.WriteLine("Duplicate appointment.");
+                                                    chosenDoctor = d2Name;
                                                 }
                                                 else
                                                 {
-                                                    if (!a1Active)
-                                                    {
-                                                        a1Patient = chosenPatient;
-                                                        a1Doctor = chosenDoctor;
-                                                        a1Date = date;
-                                                        a1Status = "Scheduled";
-                                                        a1Active = true;
-                                                    }
-                                                    else if (!a2Active)
-                                                    {
-                                                        a2Patient = chosenPatient;
-                                                        a2Doctor = chosenDoctor;
-                                                        a2Date = date;
-                                                        a2Status = "Scheduled";
-                                                        a2Active = true;
-                                                    }
-                                                    else if (!a3Active)
-                                                    {
-                                                        a3Patient = chosenPatient;
-                                                        a3Doctor = chosenDoctor;
-                                                        a3Date = date;
-                                                        a3Status = "Scheduled";
-                                                        a3Active = true;
-                                                    }
+                                                    Console.WriteLine("Invalid doctor choice.");
+                                                }
 
-                                                    appointmentCount++;
-                                                    Console.WriteLine("Appointment booked.");
+                                                if (chosenDoctor != "")
+                                                {
+                                                    Console.Write("Enter appointment date DD/MM/YYYY: ");
+                                                    string date = Console.ReadLine();
+
+                                                    if (a1Active && a1Patient == chosenPatient && a1Doctor == chosenDoctor && a1Date == date)
+                                                    {
+                                                        Console.WriteLine("Duplicate appointment.");
+                                                    }
+                                                    else if (a2Active && a2Patient == chosenPatient && a2Doctor == chosenDoctor && a2Date == date)
+                                                    {
+                                                        Console.WriteLine("Duplicate appointment.");
+                                                    }
+                                                    else if (a3Active && a3Patient == chosenPatient && a3Doctor == chosenDoctor && a3Date == date)
+                                                    {
+                                                        Console.WriteLine("Duplicate appointment.");
+                                                    }
+                                                    else
+                                                    {
+                                                        if (!a1Active)
+                                                        {
+                                                            a1Patient = chosenPatient;
+                                                            a1Doctor = chosenDoctor;
+                                                            a1Date = date;
+                                                            a1Status = "Scheduled";
+                                                            a1Active = true;
+                                                        }
+                                                        else if (!a2Active)
+                                                        {
+                                                            a2Patient = chosenPatient;
+                                                            a2Doctor = chosenDoctor;
+                                                            a2Date = date;
+                                                            a2Status = "Scheduled";
+                                                            a2Active = true;
+                                                        }
+                                                        else if (!a3Active)
+                                                        {
+                                                            a3Patient = chosenPatient;
+                                                            a3Doctor = chosenDoctor;
+                                                            a3Date = date;
+                                                            a3Status = "Scheduled";
+                                                            a3Active = true;
+                                                        }
+
+                                                        appointmentCount++;
+                                                        Console.WriteLine("Appointment booked.");
+                                                    }
                                                 }
                                             }
                                         }
-                                    }
 
-                            break;
-                                //2. Display All Appointments
-                                case 2:
-                                    break;
-                                //3. Update Appointment Status
-                                case 3:
-                                    break;
-                                //4. Cancel Appointment
-                                case 4:
-                                    break;
-                                //0. Back to Main Menu
-                                case 0:
-                                    break;
+                                        break;
+                                    //2. Display All Appointments
+                                    case 2:
+
+                                        Console.WriteLine("2. Display All Appointments");
+                                        Console.WriteLine("═════════════════════════════════════");
+
+                                        if (appointmentCount == 0)
+                                        {
+                                            Console.WriteLine("No appointments booked.");
+                                        }
+
+                                        else
+                                        {
+                                            int displayNum = 1;
+
+                                            if (a1Active)
+                                            {
+                                                Console.WriteLine("═════════════════════════════════════");
+                                                Console.WriteLine("Appointment #" + displayNum);
+                                                Console.WriteLine("Patient : " + a1Patient);
+                                                Console.WriteLine("Doctor : " + a1Doctor);
+                                                Console.WriteLine("Date : " + a1Date);
+                                                Console.WriteLine("Status : " + a1Status);
+
+                                                displayNum++;
+                                            }
+
+                                            if (a2Active)
+                                            {
+                                                Console.WriteLine("═════════════════════════════════════");
+                                                Console.WriteLine("Appointment #" + displayNum);
+                                                Console.WriteLine("Patient : " + a2Patient);
+                                                Console.WriteLine("Doctor : " + a2Doctor);
+                                                Console.WriteLine("Date : " + a2Date);
+                                                Console.WriteLine("Status : " + a2Status);
+
+                                                displayNum++;
+                                            }
+
+                                            if (a3Active)
+                                            {
+                                                Console.WriteLine("═════════════════════════════════════");
+                                                Console.WriteLine("Appointment #" + displayNum);
+                                                Console.WriteLine("Patient : " + a3Patient);
+                                                Console.WriteLine("Doctor : " + a3Doctor);
+                                                Console.WriteLine("Date : " + a3Date);
+                                                Console.WriteLine("Status : " + a3Status);
+
+                                                displayNum++;
+                                            }
+                                        }
+
+                                        break;
+                                    //3. Update Appointment Status
+                                    case 3:
 
 
+                                        Console.WriteLine("3. Update Appointment Status");
+                                        Console.WriteLine("═════════════════════════════════════");
 
-                            }
+                                        if (appointmentCount == 0)
+                                        {
+                                            Console.WriteLine("No appointments booked.");
+                                        }
+
+                                        else
+                                        {
+                                            if (a1Active)
+                                            {
+                                                Console.WriteLine("1. " + a1Patient + " - " + a1Doctor + " - " + a1Date);
+                                            }
+
+                                            if (a2Active)
+                                            {
+                                                Console.WriteLine("2. " + a2Patient + " - " + a2Doctor + " - " + a2Date);
+                                            }
+
+                                            if (a3Active)
+                                            {
+                                                Console.WriteLine("3. " + a3Patient + " - " + a3Doctor + " - " + a3Date);
+                                            }
+
+                                            Console.Write("Choose appointment slot: ");
+                                            int slotChoice = Convert.ToInt32(Console.ReadLine());
+
+                                            if ((slotChoice == 1 && a1Active) ||
+                                                (slotChoice == 2 && a2Active) ||
+                                                (slotChoice == 3 && a3Active))
+                                            {
+                                                Console.WriteLine("Choose New Status:");
+                                                Console.WriteLine("1. Scheduled");
+                                                Console.WriteLine("2. Completed");
+                                                Console.WriteLine("3. Cancelled");
+
+                                                int statusChoice = Convert.ToInt32(Console.ReadLine());
+
+                                                switch (statusChoice)
+                                                {
+                                                    case 1:
+
+                                                        if (slotChoice == 1) a1Status = "Scheduled";
+                                                        else if (slotChoice == 2) a2Status = "Scheduled";
+                                                        else if (slotChoice == 3) a3Status = "Scheduled";
+
+                                                        break;
+
+                                                    case 2:
+
+                                                        if (slotChoice == 1) a1Status = "Completed";
+                                                        else if (slotChoice == 2) a2Status = "Completed";
+                                                        else if (slotChoice == 3) a3Status = "Completed";
+
+                                                        break;
+
+                                                    case 3:
+
+                                                        if (slotChoice == 1) a1Status = "Cancelled";
+                                                        else if (slotChoice == 2) a2Status = "Cancelled";
+                                                        else if (slotChoice == 3) a3Status = "Cancelled";
+
+                                                        break;
+
+                                                    default:
+                                                        Console.WriteLine("Invalid status choice.");
+                                                        break;
+                                                }
+
+                                                Console.WriteLine("Appointment status updated.");
+                                            }
+
+                                            else
+                                            {
+                                                Console.WriteLine("Invalid slot.");
+                                            }
+                                        }
+
+                                        break;
+
+                                    //4. Cancel Appointment
+                                    case 4:
+
+                                        Console.Write("Enter Patient Name: ");
+                                        string patientName = Console.ReadLine();
+
+                                        Console.Write("Enter Appointment Date: ");
+                                        string cancelDate = Console.ReadLine();
+
+                                    if (a1Active && a1Patient == patientName && a1Date == cancelDate)
+                                    {
+                                            a1Status = "Cancelled";
+
+                                            Console.WriteLine("Appointment cancelled.");
+                                        }
+
+                                        else if (a2Active && a2Patient == patientName && a2Date == cancelDate)
+                                    {
+                                            a2Status = "Cancelled";
+
+                                            Console.WriteLine("Appointment cancelled.");
+                                        }
+
+                                        else if (a3Active && a3Patient == patientName && a3Date == cancelDate)
+                                    {
+                                            a3Status = "Cancelled";
+
+                                            Console.WriteLine("Appointment cancelled.");
+                                        }
+
+                                        else
+                                        {
+                                            Console.WriteLine("Appointment not found.");
+                                        }
+
+                                        break;
+                                    //0. Back to Main Menu
+                                    case 0:
+                                        backToMainA = true;
+                                        break;
+
+                                }
+                            Console.WriteLine("Press Enter to continue...");
+                            Console.ReadLine();
+                        }
                             break;
                         //0.Exit
                         case 0:
@@ -653,9 +823,8 @@ namespace ClinicManagement_System_CMS
                             break;
 
                     }//EndSwitch
-                   
+
                 }
             }
         }
     }
-}
