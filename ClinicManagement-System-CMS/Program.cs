@@ -32,8 +32,9 @@ namespace ClinicManagement_System_CMS
             string a3Patient = ""; string a3Doctor = ""; string a3Date = "";
             string a3Status = ""; bool a3Active = false; int appointmentCount = 0;
             // ── REGION 2: Main Menu   ───────────────────────────────────── 
-            bool backToMain = false;
-            while (backToMain == false)
+            //bool backToMain = false;
+            //while (backToMain == false)
+            while (true)
             { 
 
 
@@ -53,9 +54,10 @@ namespace ClinicManagement_System_CMS
                     {
                         //1. Patient Management
                         case 1:
-                            bool backToMainP = false;
-                            while (backToMainP == false)
-                            {
+                           // bool backToMainP = false;
+                           // while (backToMainP == false)
+                           while (true)
+                        {
                                 Console.WriteLine(" ╔══════════════════════════════════════╗");
                                 Console.WriteLine(" ║       PATIENT MANAGEMENT             ║");
                                 Console.WriteLine(" ║══════════════════════════════════════╣");
@@ -258,7 +260,7 @@ namespace ClinicManagement_System_CMS
                                         break;
                                     //0. Back to Main Menu 
                                     case 0:
-                                        backToMainP = true;
+                                        //backToMainP = true;
                                         break;
 
                                 }//End switch 
@@ -490,7 +492,7 @@ namespace ClinicManagement_System_CMS
 
                             while (backToMainA == false)
                             {
-                                Console.WriteLine(" ╔══════════════════════════════════════╗");
+                            Console.WriteLine(" ╔══════════════════════════════════════╗");
                             Console.WriteLine(" ║       APPOINTMENT MANAGEMENT         ║");
                             Console.WriteLine(" ║══════════════════════════════════════╣");
                             Console.WriteLine(" ║ 1. Book New Appointment              ║");
@@ -814,15 +816,17 @@ namespace ClinicManagement_System_CMS
                             break;
                         //0.Exit
                         case 0:
-                            backToMain = true;
+                        //  backToMain = true;
+                        return;
 
-                            Console.WriteLine("Press Enter to continue...");
-                            Console.ReadLine();
-                            Console.Clear();
-
-                            break;
-
-                    }//EndSwitch
+                       // break;
+                    default: 
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+                }//EndSwitch
 
                 }
             }
