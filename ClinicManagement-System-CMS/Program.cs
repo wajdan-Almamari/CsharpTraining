@@ -54,10 +54,9 @@ namespace ClinicManagement_System_CMS
                     {
                         //1. Patient Management
                         case 1:
-                           // bool backToMainP = false;
-                           // while (backToMainP == false)
-                           while (true)
-                        {
+                           bool backToMainP = false;
+                           while (backToMainP == false)
+                        { 
                                 Console.WriteLine(" ╔══════════════════════════════════════╗");
                                 Console.WriteLine(" ║       PATIENT MANAGEMENT             ║");
                                 Console.WriteLine(" ║══════════════════════════════════════╣");
@@ -70,14 +69,12 @@ namespace ClinicManagement_System_CMS
                                 Console.Write(" Enter your choice: ");
 
                                 int EnterChoiseP = Convert.ToInt32(Console.ReadLine());
-
+                           
                                 switch (EnterChoiseP)
                                 {
                                     //1. Add New Patient 
                                     case 1:
 
-                                        // bool choise = false;
-                                        //while (choise == false)
 
                                         Console.WriteLine("1.Add New Patient");
                                         if (patientCount == MAX_PATIENTS)
@@ -138,6 +135,7 @@ namespace ClinicManagement_System_CMS
                                         }
 
                                         break;
+                                   
 
                                     //2. Display All Patients  
                                     case 2:
@@ -260,15 +258,17 @@ namespace ClinicManagement_System_CMS
                                         break;
                                     //0. Back to Main Menu 
                                     case 0:
-                                        //backToMainP = true;
-                                        break;
+                                   
+
+                                        backToMainP = true;
+                                      break;
 
                                 }//End switch 
                                 Console.WriteLine("Press Enter to continue...");
                                 Console.ReadLine();
                             }//end of while
-
-                            break;
+                        break;
+                            
                         // 2.Doctor Management
                         case 2:
                             bool backToMainD = false;
@@ -812,6 +812,7 @@ namespace ClinicManagement_System_CMS
                                 }
                             Console.WriteLine("Press Enter to continue...");
                             Console.ReadLine();
+                            Console.Clear();
                         }
                             break;
                         //0.Exit
