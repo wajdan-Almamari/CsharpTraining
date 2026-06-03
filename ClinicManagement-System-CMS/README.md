@@ -71,7 +71,3 @@ The system supports patient registration, doctor management, appointment booking
 * Medical records management
 * Billing and payment system
 * Graphical User Interface (GUI)
-
-## Author
-
-Wajdan Al Mamari
